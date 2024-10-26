@@ -139,14 +139,18 @@ def buatOrder():
     objekorder.append(objek_order)
 
 def updatePesanan():
-    Order.displayAllOrders()
-    id_order_to_update = int(input("Masukkan ID order yang ingin di-update: "))
-    for obj_order in order:
-        if obj_order._id_order == id_order_to_update:
-            obj_order.setOrder()
-            break
-    else:
+    try:
+        Order.displayAllOrders()
+        id_order_to_update = int(input("Masukkan ID order yang ingin di-update: "))
+        for obj_order in order:
+            if obj_order._id_order == id_order_to_update:
+                obj_order.setOrder()
+                break
+        else:
+            print("ID order tidak ada")
+    except:
         print("ID order tidak ada")
+
 
 # Menjalankan menu utama
 menuutama()
